@@ -26,9 +26,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "src/js/jquery.js",
-              "src/js/bootstrap.min.js",
+            "scripts": [             
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",             
               "src/js/isotope.js",
               "src/js/imagesloaded.min.js",
               "src/js/wow.min.js",
