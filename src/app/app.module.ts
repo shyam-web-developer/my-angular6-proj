@@ -1,6 +1,6 @@
 
 import { NgModule } from '@angular/core';
-//import {APP_BASE_HREF} from '@angular/common';
+import {APP_BASE_HREF} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -41,7 +41,7 @@ import { FooterComponent } from './footer/footer.component';
     routing
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    //{provide: APP_BASE_HREF, useValue: '/'},
+    {provide: APP_BASE_HREF, useValue: '/'},
     AuthGuard, UnsearchedTermGuard, AlertService, AboutService, AuthService,UserService,DashboardService],
   bootstrap: [AppComponent]
 })
