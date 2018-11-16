@@ -8,6 +8,8 @@ import { AgGridModule } from 'ag-grid-angular';
 import { AuthGuard,UnsearchedTermGuard } from './_guards';
 
 import { AppComponent } from './app.component';
+import { LoginLayoutComponent } from './layouts/login-layout.component';
+import { HomeLayoutComponent } from './layouts/home-layout.component';
 import { AlertComponent } from './_directives';
 import { routing } from './app.routing';
 import { AboutComponent } from './about/about.component';
@@ -26,8 +28,10 @@ import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
+    LoginLayoutComponent,
+    HomeLayoutComponent,
     AlertComponent,   
-    HomeComponent,
+    HomeComponent,    
     AboutComponent,
     LoginComponent,
     RegisterComponent,    

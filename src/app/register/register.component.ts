@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef} from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
@@ -13,7 +13,7 @@ export class RegisterComponent {
     registerForm: FormGroup;
     loading = false;
     submitted = false;
-
+    @ViewChild("firstname") firstField: ElementRef;
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
@@ -27,6 +27,7 @@ export class RegisterComponent {
             username: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]]
         });
+        this.firstField.nativeElement.focus();
     }
 
     // convenience getter for easy access to form fields

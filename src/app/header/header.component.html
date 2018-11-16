@@ -24,14 +24,15 @@
 		</div>
 		<div class="collapse navbar-collapse" *ngIf="isLoggedIn">
 			<ul class="nav navbar-nav navbar-right"> 
-				<li><a [routerLink]="['/dashboard']" class="smoothScroll">HOME</a></li>
+				<li><a [routerLink]="['/dashboard']" class="smoothScroll">Home</a></li>
 				<!-- <li><a href="#service" class="smoothScroll">SERVICE</a></li>
 				<li><a [routerLink]="['/about']" class="smoothScroll">ABOUT</a></li>
 				<li><a href="#team" class="smoothScroll">TEAM</a></li>
 				<li><a href="#pricing" class="smoothScroll">PRICING</a></li>
 				<li><a href="#portfolio" class="smoothScroll">PORTFOLIO</a></li>
-                <li><a [routerLink]="['/contact']" class="smoothScroll">CONTACT</a></li> -->				
-				<li><a href="javascript:void(0);" (click)="onLogout()"  class="smoothScroll">LOGOUT</a></li>
+				<li><a [routerLink]="['/contact']" class="smoothScroll">CONTACT</a></li> -->
+				<li><a [routerLink]="['/setting']" class="smoothScroll">Setting</a></li>				
+				<li><a href="javascript:void(0);" (click)="onLogout()"  class="smoothScroll">Logout</a></li>
 			</ul>
 		</div>
 	</div>

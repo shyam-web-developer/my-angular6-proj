@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
@@ -15,13 +15,14 @@ export class LoginComponent {
     loading = false;
     submitted = false;
     returnUrl: string;
-
+    @ViewChild("username") userField: ElementRef;
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authService: AuthService,
-        private alertService: AlertService) { }
+        private authService: AuthService,      
+        private alertService: AlertService) {           
+         }
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
@@ -34,7 +35,8 @@ export class LoginComponent {
 
         // get return url from route parameters or default to '/'
         // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        this.returnUrl = '/dashboard';
+        this.returnUrl = '/dashboard';     
+        this.userField.nativeElement.focus();   
     }
 
     // convenience getter for easy access to form fields
