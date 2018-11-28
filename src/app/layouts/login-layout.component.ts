@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { AuthService } from './../_services';
 @Component({
   selector: 'app-login-layout',
   template: `
@@ -10,4 +10,11 @@ import { Component } from '@angular/core';
   `,
   styles: []
 })
-export class LoginLayoutComponent {}
+export class LoginLayoutComponent {
+  constructor(private authService: AuthService) {
+    
+   }
+  onLogout() {    
+    this.authService.logout();
+  }
+}
