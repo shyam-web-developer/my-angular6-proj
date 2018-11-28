@@ -13,16 +13,9 @@ export class HomeComponent {
           });
      }
 
-    ngOnInit() {
-        //this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        //setTimeout(() => this.showContent = true, 200);
-    }
-
-    logout(): void {
-        console.log("Logout");
-        this.authService.logout();
-        this.router.navigate(['/login']);
-    }
+    ngOnInit() {      
+        this.authService.clearLocalStorage();
+    }    
 
     canDeactivate() {
         return false;

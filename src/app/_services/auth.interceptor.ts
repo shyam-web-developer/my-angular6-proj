@@ -24,8 +24,7 @@ export class AuthInterceptor {
                 if (err.status === 401 || err.status === 0) {
                     // auto logout if 401 response returned from api
                     //console.log(err.message);
-                    this.authService.logout();
-                    this.router.navigateByUrl('/login');
+                    this.authService.logout();                    
                 }
                 //const error = err.error.message || err.statusText;
                 return throwError(err);

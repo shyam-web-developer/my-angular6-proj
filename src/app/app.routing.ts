@@ -7,7 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard, UnsearchedTermGuard } from './_guards';
 
 const appRoutes: Routes = [
@@ -34,6 +34,10 @@ const appRoutes: Routes = [
             {
                 path: 'dashboard',
                 component: DashboardComponent
+            },
+            {
+                path: 'user-profile',
+                component: UserProfileComponent
             }
         ]
     },

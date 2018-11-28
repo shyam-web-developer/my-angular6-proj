@@ -23,6 +23,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardService } from './dashboard/dashboard.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { FooterComponent } from './footer/footer.component';
     AboutComponent,
     LoginComponent,
     RegisterComponent,    
-    ContactComponent, DashboardComponent, HeaderComponent, FooterComponent
+    ContactComponent, DashboardComponent, HeaderComponent, FooterComponent, UserProfileComponent
   ],
   imports: [
     BrowserModule,

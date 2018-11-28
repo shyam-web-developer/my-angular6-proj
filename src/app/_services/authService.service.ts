@@ -62,5 +62,13 @@ export class AuthService {
                 this.router.navigate([route._routerState.snapshot.url]);
             }
         }
-    };
+    }
+
+    clearLocalStorage() {
+        // remove user from local storage to log user out
+        console.log("Logout");
+        localStorage.setItem('isLoggedIn', "false");
+        localStorage.removeItem('currentUser');
+        this.loggedIn.next(false);        
+    }
 }
