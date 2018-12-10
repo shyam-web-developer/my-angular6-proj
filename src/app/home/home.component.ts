@@ -9,7 +9,7 @@ export class HomeComponent {
     public showContent: boolean = false;
     constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService) {
         route.url.subscribe(() => {
-           authService.canDeactivate(route) ; // any time url changes, this callback is fired
+           authService.canDeactivate(route); // any time url changes, this callback is fired
           });
      }
 
@@ -18,7 +18,7 @@ export class HomeComponent {
     }    
 
     canDeactivate() {
-        return false;
+        return true;
       }
 }
 

@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import {APP_BASE_HREF} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AgGridModule } from 'ag-grid-angular';
 import { AuthGuard,UnsearchedTermGuard } from './_guards';
@@ -42,6 +42,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     BrowserModule,
     AgGridModule.withComponents([]),
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     routing
   ],

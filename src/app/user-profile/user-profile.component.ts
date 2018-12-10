@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AlertService, UserService } from '../_services';
+import { CustomValidator } from '../_validation/custom.validation';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -25,7 +26,7 @@ export class UserProfileComponent {
       lastName: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      mobile: ['', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]]
+      mobile: ['', [Validators.required, CustomValidator.numberValidator]]
     });
     this.firstField.nativeElement.focus();
   }

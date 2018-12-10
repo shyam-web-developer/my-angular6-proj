@@ -3,11 +3,12 @@ import { Router, CanActivate, CanDeactivate, ActivatedRouteSnapshot, RouterState
 import { AuthService } from '../_services/authService.service';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
-import {HomeComponent} from '../home/home.component';
+import { HomeComponent } from '../home/home.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-    constructor(private router: Router, private authService : AuthService) { }
+    constructor(private router: Router, private authService: AuthService) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         let url: string = state.url;
@@ -23,7 +24,7 @@ export class AuthGuard implements CanActivate {
             return true;
         }
     }
-    
+
     /* canActivate(
         next: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
@@ -42,13 +43,20 @@ export class AuthGuard implements CanActivate {
       } */
 }
 
-export class UnsearchedTermGuard implements CanDeactivate<HomeComponent> { 
-    canDeactivate(component: HomeComponent, 
-                  route: ActivatedRouteSnapshot,
-                  state: RouterStateSnapshot): boolean {
-      console.log("UnsearchedTermGuard");
-      console.log(route.params);
-      console.log(state.url);
-      return component.canDeactivate() || window.confirm("Are you sure?");
+@Injectable()
+export class UnsearchedTermGuard implements CanDeactivate<HomeComponent> {
+    constructor(private router: Router, private authService: AuthService) { }
+    canDeactivate(component: HomeComponent,
+        route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot): boolean {
+        /* console.log("UnsearchedTermGuard");
+        console.log(route.params);
+        console.log(state.url);
+        return component.canDeactivate() || window.confirm("Are you sure?"); */
+
+        if (this.authService.isLoggedIn()) {
+            //this.authService.canDeactivate(route);      
+        }
+        return true;
     }
-  }
+}

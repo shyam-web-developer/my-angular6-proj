@@ -21,7 +21,7 @@ export class AuthService {
     tokenUrl = environment.tokenUrl;
     private loggedIn = new Subject<boolean>();
     loggedIn$ = this.loggedIn.asObservable();
-
+    returnUrl: string;
     constructor(private http: HttpClient, private router: Router) { }
 
     login(username: string, password: string) {
@@ -52,7 +52,7 @@ export class AuthService {
         return status;
     }
 
-    canDeactivate(route): void {
+    canDeactivate(route): boolean {
         if (this.isLoggedIn()) {
             if (confirm("Do you want to logout!")) {
                 console.log("Logout");
@@ -60,8 +60,9 @@ export class AuthService {
                 localStorage.removeItem('currentUser');
                 this.loggedIn.next(false);
                 this.router.navigate([route._routerState.snapshot.url]);
-            }
+            }                      
         }
+        return false;
     }
 
     clearLocalStorage() {

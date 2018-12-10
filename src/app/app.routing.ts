@@ -19,6 +19,7 @@ const appRoutes: Routes = [
             { path: '', component: HomeComponent },
             { path: 'login', component: LoginComponent },
             { path: 'home', component: HomeComponent },
+          //  { path: 'home', component: HomeComponent, canDeactivate:[UnsearchedTermGuard] },
             { path: 'about', component: AboutComponent },
             { path: 'contact', component: ContactComponent },
             // { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -33,7 +34,7 @@ const appRoutes: Routes = [
         children: [
             {
                 path: 'dashboard',
-                component: DashboardComponent
+                component: DashboardComponent                
             },
             {
                 path: 'user-profile',

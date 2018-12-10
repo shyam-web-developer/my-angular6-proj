@@ -27,10 +27,11 @@
         </div>
         <div class="form-group">
           <label for="mobile">Mobile</label>
-          <input type="number" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+          <input type="text" minlength="10" maxlength="10" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
           <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
             <div *ngIf="f.mobile.errors.required">Mobile is required</div>
-            <div *ngIf="f.mobile.errors.minlength">Mobile must be at least 10 number</div>
+            <div *ngIf="f.mobile.errors.minlength && !f.mobile.hasError('invalidNumber')">Mobile must be at least 10 number</div>
+            <div *ngIf="!f.mobile.errors.required && f.mobile.hasError('invalidNumber')">Numbers accepted only!</div>
           </div>
         </div>
         <div class="form-group">

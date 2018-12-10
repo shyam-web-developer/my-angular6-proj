@@ -17,7 +17,7 @@
 //       }, false);  
 //   }
 // }
-
+import { Router, RoutesRecognized,NavigationEnd } from '@angular/router';
 import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
@@ -28,4 +28,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-first-project';
+  constructor(
+    private router: Router
+  ) {
+    this.router.events
+      .subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          localStorage.setItem('previousUrl', event.url);
+        }
+      });
+  }
 }
