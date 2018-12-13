@@ -37,7 +37,7 @@ const appRoutes: Routes = [
                 component: DashboardComponent                
             },
             {
-                path: 'user-profile',
+                path: 'user-profile/:id',
                 component: UserProfileComponent
             }
         ]
@@ -47,4 +47,4 @@ const appRoutes: Routes = [
     { path: '**', redirectTo: '' }
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing = RouterModule.forRoot(appRoutes, {useHash: true});

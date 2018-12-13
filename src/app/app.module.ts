@@ -24,7 +24,7 @@ import { DashboardService } from './dashboard/dashboard.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-
+import { ParamsComponent } from './dashboard/params.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +36,16 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AboutComponent,
     LoginComponent,
     RegisterComponent,    
-    ContactComponent, DashboardComponent, HeaderComponent, FooterComponent, UserProfileComponent
+    ContactComponent, 
+    DashboardComponent,
+    HeaderComponent, 
+    FooterComponent, 
+    UserProfileComponent,
+    ParamsComponent
   ],
   imports: [
     BrowserModule,
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([ParamsComponent]),
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,

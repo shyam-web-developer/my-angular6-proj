@@ -20,7 +20,7 @@ export class UserService {
     }
 
     getUserById(id: number) {
-        return this.http.get(`/users/` + id);
+        return this.http.get<User>(this.baseUrl + 'Users/' + id);
     }
 
     register(user: User) {
@@ -28,7 +28,7 @@ export class UserService {
     }
 
     update(user: User) {
-        return this.http.put(`/users/` + user.id, user);
+        return this.http.put(this.baseUrl + 'Users/' + user.id, user);
     }
 
     delete(id: number) {

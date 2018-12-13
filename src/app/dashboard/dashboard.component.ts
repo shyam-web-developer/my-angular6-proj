@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DashboardService} from '../dashboard/dashboard.service'
 import {AlertService} from '../_services';
+import { ParamsComponent } from '../dashboard/params.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,11 +17,12 @@ export class DashboardComponent implements OnInit {
   constructor(private _dashboardService: DashboardService, private alertService: AlertService) { }
 
   columnDefs = [
-    {headerName: 'FirstName', field: 'firstName'},
-    {headerName: 'LastName', field: 'lastName'},
-    {headerName: 'UserName', field: 'userName'},    
-    {headerName: 'Created Date', field: 'createdDate'},
-    {headerName: 'Active', field: 'isActive'}
+    { headerName: 'FirstName', field: 'firstName', width :100 },
+    { headerName: 'LastName', field: 'lastName', width :100 },
+    { headerName: 'UserName', field: 'userName', width :100 },    
+    { headerName: 'Created Date', field: 'createdDate', width :170 },
+    { headerName: 'Active', field: 'isActive', width :80},
+    { headerName: 'Edit', field: 'id', cellRendererFramework: ParamsComponent, width :80 }    
 ];
 
 
